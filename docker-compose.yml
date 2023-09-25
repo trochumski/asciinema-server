@@ -19,6 +19,8 @@ services:
     env_file: .env.production
     ### See https://github.com/namshi/docker-smtp for more SMTP configuration
     ### options for this image.
+    ports:
+      - "25:25"
 
   nginx:
     image: nginx:1.15-alpine
@@ -27,7 +29,7 @@ services:
     links:
       - phoenix
     ports:
-      - "80:80"
+      - "10000:80"
       ### Uncomment for HTTPS:
       # - "443:443"
     volumes:
